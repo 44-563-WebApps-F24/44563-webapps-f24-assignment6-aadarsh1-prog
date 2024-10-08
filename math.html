@@ -2,23 +2,26 @@
 <html>
     <head>
         <title>Math Calculations</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 <body>
 
 <h2>Gokul Aadarsh figures out</h2>
 
+<div class="container">
+    <form>
+        <label for="first_value">Enter a number:</label>
+        <input type="number" id="first_value" value="2"><br>
+    
+        <label for="second_value">Enter a number:</label>
+        <input type="number" id="second_value" value="12"><br>
+    
+        <input type="button" value="Compute" onclick="powerSum()">
+    </form>
+    <p id="sum_result"></p>
+</div>
 
 
-<form>
-    <label for="first_value">Enter a number:</label>
-    <input type="number" id="first_value" value="2"><br>
-
-    <label for="second_value">Enter a number:</label>
-    <input type="number" id="second_value" value="12"><br>
-
-    <input type="button" value="Compute" onclick="powerSum()">
-</form>
-<p id="sum_result"></p>
 <script>
     function powerSum() {
         const firstValue = parseInt(document.getElementById("first_value").value);
@@ -34,13 +37,17 @@
     }
 </script>
 
-<form>
-    <input type="radio" name="calculation" value="max" onclick="processRadio()"> Max<br>
-    <input type="radio" name="calculation" value="min" onclick="processRadio()"> Min<br>
-    <input type="radio" name="calculation" value="avg" onclick="processRadio()"> Average<br>
-    <input type="radio" name="calculation" value="geo" onclick="processRadio()"> Geometric Mean<br>
-</form>
-<p id="calc_result"></p>
+<div class="container">
+    <form>
+        <input type="radio" name="calculation" value="max" onclick="processRadio()"> Max<br>
+        <input type="radio" name="calculation" value="min" onclick="processRadio()"> Min<br>
+        <input type="radio" name="calculation" value="avg" onclick="processRadio()"> Average<br>
+        <input type="radio" name="calculation" value="geo" onclick="processRadio()"> Geometric Mean<br>
+    </form>
+    <p id="calc_result"></p>
+</div>
+
+
 <script>
     function processRadio() {
         const firstValue = parseInt(document.getElementById("first_value").value);

@@ -2,26 +2,36 @@
 <html>
     <head>
         <title>Guess the colour</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 <body>
 
 <h2>Guess the Color - Gokul Aadarsh</h2>
 
-<form>
-    <label for="secret_color">Guess the color</label>
-    <input type="password" id="secret_color" value="Red"><br>
-
-    <label for="guess_color">Enter a guess</label>
-    <input type="text" id="guess_color"><br>
-
-    <input type="button" onclick="processColor()" value="Check the color">
-</form>
-
-<p id="result">Attempts: 0 | Wrong: 0</p>
-
-<div>
-    <img id="plantImage" src="o2.jpeg" width="200" height="200" onclick="nextImage()">
+<div class="row">
+    <div class="col-md-6">
+        <form>
+            <label for="secret_color">Guess the color</label>
+            <input type="password" id="secret_color" value="Red"><br>
+        
+            <label for="guess_color">Enter a guess</label>
+            <input type="text" id="guess_color"><br>
+        
+            <input type="button" onclick="processColor()" value="Check the color">
+            <p id="result">Attempts: 0 | Wrong: 0</p>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <img id="plantImage" src="o2.jpeg" width="200" height="200" onclick="nextImage()">
+        </div>
+    </div>
 </div>
+
+
+
+
+
 
 <script>
     let attempts = 0;

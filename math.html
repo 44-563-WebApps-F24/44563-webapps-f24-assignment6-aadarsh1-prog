@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math Calculations</title>
+    </head>
+<body>
+
+<h2>Gokul Aadarsh figures out</h2>
+
+
+
+<form>
+    <label for="first_value">Enter a number:</label>
+    <input type="number" id="first_value" value="2"><br>
+
+    <label for="second_value">Enter a number:</label>
+    <input type="number" id="second_value" value="12"><br>
+
+    <input type="button" value="Compute" onclick="powerSum()">
+</form>
+<p id="sum_result"></p>
+<script>
+    function powerSum() {
+        const firstValue = parseInt(document.getElementById("first_value").value);
+        const secondValue = parseInt(document.getElementById("second_value").value);
+        let sum = 0;
+
+        for (let i = 0; i < firstValue; i++) {
+            sum += secondValue ** i;
+        }
+
+        document.getElementById("sum_result").innerHTML = 
+            `Sum of ${firstValue} powers with base ${secondValue} is ${sum}`;
+    }
+</script>
+
+<form>
+    <input type="radio" name="calculation" value="max" onclick="processRadio()"> Max<br>
+    <input type="radio" name="calculation" value="min" onclick="processRadio()"> Min<br>
+    <input type="radio" name="calculation" value="avg" onclick="processRadio()"> Average<br>
+    <input type="radio" name="calculation" value="geo" onclick="processRadio()"> Geometric Mean<br>
+</form>
+<p id="calc_result"></p>
+<script>
+    function processRadio() {
+        const firstValue = parseInt(document.getElementById("first_value").value);
+        const secondValue = parseInt(document.getElementById("second_value").value);
+        let result = 0;
+        const radios = document.getElementsByName("calculation");
+
+        for (const radio of radios) {
+            if (radio.checked) {
+                switch (radio.value) {
+                    case "max":
+                        result = Math.max(firstValue, secondValue);
+                        break;
+                    case "min":
+                        result = Math.min(firstValue, secondValue);
+                        break;
+                    case "avg":
+                        result = (firstValue + secondValue) / 2;
+                        break;
+                    case "geo":
+                        result = Math.sqrt(firstValue * secondValue); // Geometric mean
+                        break;
+                }
+                document.getElementById("calc_result").innerHTML = 
+                    `Computed ${radio.value} with values ${firstValue} and ${secondValue}. Result: ${result}`;
+            }
+        }
+    }
+</script>
+
+
+
+</body>
+</html> 

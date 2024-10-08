@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lunch</title>
+    </head>
+<body>
+
+<h2>Lunch by Aadarsh</h2>
+
+<form>
+    <input type="checkbox" id="drink" value="drink"> Drink<br>
+    <input type="checkbox" id="side" value="side"> Side<br>
+    <input type="checkbox" id="in" value="in"> Eat in<br>
+    
+    <input type="button" value="Start a lunch order" onclick="startLunch()">
+</form>
+
+<p id="lunch_result"></p>
+
+<script>
+    let my_lunch = {};
+
+    function startLunch() {
+        my_lunch = {};  
+
+        my_lunch.drink = document.getElementById("drink").checked;
+        my_lunch.side = document.getElementById("side").checked;
+        my_lunch.in = document.getElementById("in").checked;
+
+        document.getElementById("lunch_result").innerHTML = 
+            `Your lunch order: Drink: ${my_lunch.drink}, Side: ${my_lunch.side}, Eat in: ${my_lunch.in}`;
+    }
+</script>
+
+<form>
+    <label for="property">Enter property:</label>
+    <input type="text" id="property" value="entree"><br>
+    
+    <label for="value">Set it to:</label>
+    <input type="text" id="value"><br>
+
+    <input type="button" value="Update the lunch" onclick="updateLunch()">
+</form>
+
+<p id="updated_lunch_result"></p>
+
+<script>
+    function updateLunch() {
+        const property = document.getElementById("property").value;
+        const value = document.getElementById("value").value;
+
+        // Update the my_lunch object
+        my_lunch[property] = value;
+
+        // Display the updated my_lunch object
+        document.getElementById("updated_lunch_result").innerHTML = JSON.stringify(my_lunch);
+    }
+</script>
+
+
+
+</body>
+</html> 

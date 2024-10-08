@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess the colour</title>
+    </head>
+<body>
+
+<h2>Guess the Color - Gokul Aadarsh</h2>
+
+<form>
+    <label for="secret_color">Guess the color</label>
+    <input type="password" id="secret_color" value="Red"><br>
+
+    <label for="guess_color">Enter a guess</label>
+    <input type="text" id="guess_color"><br>
+
+    <input type="button" onclick="processColor()" value="Check the color">
+</form>
+
+<p id="result">Attempts: 0 | Wrong: 0</p>
+
+<div>
+    <img id="plantImage" src="o2.jpeg" width="200" height="200" onclick="nextImage()">
+</div>
+
+<script>
+    let attempts = 0;
+    let wrong = 0;
+
+    function processColor() {
+        const secretColor = document.getElementById("secret_color").value;
+        const guessedColor = document.getElementById("guess_color").value;
+
+        attempts++;
+        if (guessedColor.toLowerCase() !== secretColor.toLowerCase()) {
+            wrong++;
+            alert("That was not it");
+        } else {
+            alert("You got it!");
+        }
+
+        document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
+    }
+
+
+    let showing = 1;
+
+    function nextImage() {
+        console.log("Current showing:", showing);
+
+        switch (showing) {
+            case 1:
+                document.getElementById("plantImage").src = "OIP.jpeg";
+                showing = 2;
+                break;
+            case 2:
+                document.getElementById("plantImage").src = "fg.jpeg";
+                showing = 3;
+                break;
+            case 3:
+                document.getElementById("plantImage").src = "o2.jpeg";
+                showing = 1;
+                break;
+        }
+    }
+</script>
+
+
+</body>
+</html> 
